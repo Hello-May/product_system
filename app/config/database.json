@@ -1,0 +1,29 @@
+{
+  "development": {
+    "username": "node",
+    "password": "password",
+    "database": "product_system",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+08:00",
+    "logging": false
+  },
+  "test": {
+    "username": "node",
+    "password": "password",
+    "database": "product_system",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+08:00",
+    "logging": false
+  },
+  "production": {
+    "username": "node",
+    "password": "password",
+    "database": "product_system",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+08:00",
+    "logging": false
+  }
+}

@@ -1,0 +1,106 @@
+@url=http://localhost:8000
+
+@token=Bearer {{login.response.body.token}} 
+
+@product_id=3
+
+############### auth start ###############
+post {{url}}/api/auth/register
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "may",
+  "email": "mmm@test.com",
+  "password": "1234"
+}
+
+###
+# @name login
+post {{url}}/api/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "may",
+  "email": "jjj@test.com",
+  "password":"1234"
+}
+
+###
+post {{url}}/api/auth/logout
+Accept: application/json
+Authorization: {{token}}
+Content-Type: application/json
+
+###
+get {{url}}/api/auth/user
+Accept: application/json
+Authorization: {{token}}
+Content-Type: application/json
+
+###
+get {{url}}/api/auth/user
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJtYXkiLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJjcmVhdGVkQXQiOiIyMDIyLTA1LTA4IDE2OjExOjE0IiwidXBkYXRlZEF0IjoiMjAyMi0wNS0wOCAxNjoxMToxNCIsImlhdCI6MTY1MjAxOTY3MCwiZXhwIjoxNjUyMjc4ODcwfQ.xmFwaMznNircwS4OvpsLqY6zxQuihJc4EFY0OH8ncuM
+Content-Type: application/json
+############### auth end ###############
+
+############### user start ###############
+get {{url}}/api/user
+Accept: application/json
+Authorization: {{token}}
+Content-Type: application/json
+
+############### user end ###############
+
+############### product start ###############
+get {{url}}/api/product
+Accept: application/json
+Authorization: {{token}}
+Content-Type: application/json
+
+###
+post {{url}}/api/product
+Accept: application/json
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "name": "p4",
+  "price": 10,
+  "note":"ya"
+}
+
+###
+get {{url}}/api/product/{{product_id}}
+Accept: application/json
+Authorization: {{token}}
+Content-Type: application/json
+
+###
+patch {{url}}/api/product/{{product_id}}
+Accept: application/json
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "name": "p3",
+  "price": 30
+}
+
+###
+delete {{url}}/api/product/{{product_id}}
+Accept: application/json
+Authorization: {{token}}
+Content-Type: application/json
+
+############### product start ###############
+
+############### audit start ###############
+get {{url}}/api/audit
+Accept: application/json
+Authorization: {{token}}
+Content-Type: application/json
+
+############### audit end ###############
